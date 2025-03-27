@@ -84,7 +84,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     /* background-color: #bfa3c6; */
-    background-image: url('/images/imageDeGare.jpg');
+    background-image: url('images/imageDeGare.jpg');
     background-size: cover;
     background-position: center;
     color: #333;
