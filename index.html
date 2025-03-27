@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚅 Trajet SNCF 🚆</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  
+   <!-- Leaflet -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+   crossorigin=""></script>
+
+   
+   
+</head>
+<body>
+    <h1>Planifiez votre trajet en train</h1>
+    
+ <div id="container-gauche">  
+    <!-- <div id="colonne-recherche"> -->
+<div class="container">
+    <div class="search-type">
+        <div class="search-toggle">
+            <input type="radio" id="departureSearch" name="searchType" value="departure" checked>
+            <label for="departureSearch">Recherche par départ</label>
+            
+            <input type="radio" id="arrivalSearch" name="searchType" value="arrival">
+            <label for="arrivalSearch">Recherche par arrivée</label>
+        </div>
+    </div>
+
+        <div class="autocomplete-container">
+            <div class="autocomplete1"><h2>Gare de départ</h2>
+                <input type="text" id="cityInput" placeholder="Gare de départ" autocomplete="off">
+                <div id="loading">Recherche en cours...</div>
+                <div id="results"></div>
+            </div>
+            <div class="autocomplete2"><h2>Gare d'arrivée</h2>
+                <input type="text" id="villeArriver" placeholder="Gare d'arrivée" autocomplete="off">
+                <div id="loading2">Recherche en cours...</div>
+                <div id="results2"></div>
+            </div>
+        </div>
+        
+    <div id="departureBlock" class="time-date-block">
+                    <div class="dateHeure">
+                        <div class="dateDepart" id="form">
+                            <div id="date3">
+                                <label for="dateForm">Date départ</label>
+                                <input type="date" id="date">
+                            </div>
+                        </div>
+                        <div id="time3">
+                            <label for="timeForm">Heure départ</label>
+                            <input type="time" id="time">
+                        </div>
+                    </div>
+
+                    <div id="Recherche">
+                        <button id="rechercheDepart">Rechercher</button>
+                    </div>
+            
+    </div>
+
+<div id="arrivalBlock" class="time-date-block">
+        <div class="dateHeure">
+            <div class="dateArrivee" id="form">
+                <div id="date4">
+                    <label for="dateForm">Date arrivée</label>
+                    <input type="date" id="date2">
+                </div>
+            </div>
+            <div id="time4">
+                <label for="timeForm">Heure arrivée</label>
+                <input type="time" id="time2">
+            </div>
+        </div>
+
+        <div id="Recherche">
+            <button id="RechercheArrivee">Rechercher</button>
+        </div>
+    </div> 
+</div>
+    <!-- </div> -->
+
+
+    <section id="Trajet">
+        <div class="itineraire">
+            <h2>Itinéraire</h2>
+            <div id="itineraire"></div>
+            <div id="itineraire2"></div>
+            <h2>Transport utilisé</h2>
+            <div id="transport"></div>
+            <h2>Heure départ</h2>
+            <div id="heureDepart"></div>
+            <h2>Heure arrivée</h2>
+            <div id="heureArriver"></div>
+            <h2>Duree</h2>
+            <div id="duree"></div>
+            <h2>Temps de marche</h2>
+            <div id="tempsMarche"></div>
+        </div>
+    </section>
+ </div>
+
+ </div>
+ <!-- Il faut mettre la div ici pour la colonne recherche -->
+<div id="container-droite">
+    <div id="colonne-map">
+    <div id="map" class="container-right">
+        <h2>Carte de la France</h2>
+      
+    </div>
+    <div id="container-historique" class="container-right">
+        <h2 class="h2-Depart">Historique des trajets de Départ</h2>
+        <div id="historique-de-depart"></div>
+        <h2 class="h2-Arriver">Historique des trajets d'Arrivée</h2>
+        <div id="historique-de-arriver"></div>
+        
+        <button id="supprimerHistorique">Supprimer Historique</button>
+    
+    </div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+#map { 
+    height: 100%;
+    min-height: 400px;
+    width: 100%;
+    margin-right: 5px;
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 350px;
+ }
+ 
+
+ p, .ville-depart{
+    cursor: pointer;
+   
+}
+
+.h2-Depart{
+    margin-bottom: 10px;
+}
+
+ #container-gauche {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* gap : 5px; */
+    margin-bottom: 20px;
+    justify-content: space-between;
+    flex: 1;
+    max-height: 50%;
+    z-index: 1;
+ }
+
+ #colonne-recherche{
+    margin-right: 5px;
+    max-width: 745px;
+ }
+
+ #colonne-map, #colonne-recherche {
+    flex: 1;
+    min-width: 300px;
+    justify-content: space-between ;
+    display: flex;
+    flex-wrap: wrap;
+   
+ }
+ #container-droite {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+    min-width: 400px;
+    
+ }
+
+ #container-historique , #colonne-map {
+    flex: 1;
+    min-width: 350px;
+ }
+ #container-historique {
+    margin-right: 5px;
+    position: relative;
+    min-height: 200px;
+ }
+ .container-right {
+    background-color: rgb(249, 255, 240);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    text-align: center;
+    min-width: 350px;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* background-color: #bfa3c6; */
+    background-image: url('/images/imageDeGare.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    padding-top: 0%;
+}
+
+body::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+/* Conteneur principal */
+.container {
+    background-color: rgb(249, 255, 240, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 745px;
+    text-align: center;
+    margin-bottom: 5px;
+    min-width: 400px;
+    /* gap: 5px; */
+    margin-right: 5px;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: space-between;
+    position: relative;
+    
+}
+
+h1 {
+    color: #1c7ee7;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    align-items: center;
+    z-index: 1;
+}
+
+#cityInput, #villeArriver {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    border: 2px solid #666;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#cityInput:focus, #villeArriver:focus {
+    border-color: #1c7ee7;
+    outline: none;
+    box-shadow: 0 0 5px rgba(28, 126, 231, 0.5);
+}
+
+
+.autocomplete-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.autocomplete1, .autocomplete2 {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+    margin: 10px 0;
+}
+
+#loading, #loading2 {
+    display: none;
+    color: #666;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+#results, #results2 {
+    display: none;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgb(249, 255, 240,0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+#date3 {
+    margin-bottom: 40px;
+    flex: 1;
+}
+
+#date4 {
+    margin-bottom: 40px;
+    flex: 1;
+}
+
+.dateHeure {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    
+}
+
+#rechercheDepart {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+#RechercheArrivee {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+/* Conteneur pour l'affichage du trajet */
+#Trajet {
+    background-color: rgb(249, 255, 240,0.6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 745px;
+    text-align: center;
+    margin-bottom: 5px;
+    flex: 1;
+    min-width: 400px;
+    flex-wrap: wrap;
+    margin-right: 5px;
+    /* margin-left: 5px; */
+    
+}
+/* Conteneur à droite pour un autre élément */
+.container-right {
+    background-color: rgb(249, 255, 240,0.6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 745px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+#form2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+}
+#RechercheA {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+
+.itineraire{
+    text-align: left;
+}
+
+
+#supprimerHistorique {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   min-width: 300px;
+   /* max-width: 220px; */
+   max-height: 40px; 
+   max-width: 80%;
+   margin-top: 10px;
+   margin-bottom: 20px;
+   
+}
+
+.h2-Arriver{
+    margin-bottom: 10px;
+}
+
+#historique-de-arriver{
+    margin-bottom: 0px;
+}
+
+.result-item {
+    cursor: pointer;
+   
+}
+
+/* Styles responsives pour les appareils mobiles */
+@media screen and (max-width: 768px) {
+    /* Conteneurs principaux en colonne */
+    #container-gauche, 
+    #container-droite
+     {
+        flex-direction: column;
+    }
+    
+    /* Champs de recherche en colonne */
+    .autocomplete-container{
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* Ajustement des largeurs pour occuper toute la largeur disponible */
+    .container,
+    #map,
+    #container-historique,
+    .autocomplete1, 
+    .autocomplete2,
+    #colonne-map, 
+    #colonne-recherche,
+    #Trajet,
+    #container-right{
+        min-width: 100%;
+        margin-right: 0;
+    }
+    
+    /* Ajustement des marges */
+    .container, 
+    #Trajet, 
+    .container-right {
+        margin-bottom: 15px;
+    }
+    
+    /* Ajustement de la taille des boutons */
+    #rechercheDepart,
+    #RechercheArrivee,
+    #supprimerHistorique {
+        width: 100%;
+    }
+
+}
+
+
